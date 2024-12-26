@@ -1,1 +1,74 @@
+import React from 'react';
+import { Wand2, Users, Layers, Box, Palette, Zap } from 'lucide-react';
 
+const features = [
+  {
+    icon: Wand2,
+    title: 'Intuitive Design',
+    description: 'Drag-and-drop interface makes character creation simple and enjoyable.'
+  },
+  {
+    icon: Users,
+    title: 'Collaboration',
+    description: 'Work together in real-time with team members anywhere in the world.'
+  },
+  {
+    icon: Layers,
+    title: 'Animation Tools',
+    description: 'Powerful animation features with pre-set actions and custom options.'
+  },
+  {
+    icon: Box,
+    title: 'Asset Library',
+    description: 'Extensive collection of pre-made templates and customizable assets.'
+  },
+  {
+    icon: Palette,
+    title: 'Advanced Texturing',
+    description: 'Professional-grade texturing and shading tools for realistic results.'
+  },
+  {
+    icon: Zap,
+    title: 'Real-time Preview',
+    description: 'See your changes instantly with our real-time rendering engine.'
+  }
+];
+
+export function Features() {
+  return (
+    <section id="features" className="py-20 bg-white">
+      <div className="container mx-auto px-6">
+        <div className="text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            Powerful Features for Professional Results
+          </h2>
+          <p className="mt-4 text-xl text-gray-600">
+            Everything you need to bring your characters to life
+          </p>
+        </div>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <div 
+                key={index}
+                className="p-6 bg-white rounded-xl border border-gray-100 hover:border-indigo-500 transition-colors duration-300"
+              >
+                <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
+                  <Icon className="h-6 w-6 text-indigo-600" />
+                </div>
+                <h3 className="mt-4 text-xl font-semibold text-gray-900">
+                  {feature.title}
+                </h3>
+                <p className="mt-2 text-gray-600">
+                  {feature.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
